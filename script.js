@@ -1,50 +1,46 @@
 
 const expression = document.querySelector("#expression");
 const output = document.querySelector("#answer")
+const historyList = document.getElementById("history-list");
 
 
-// Save data to local storage
+
 function saveData() {
     localStorage.setItem('expression', exp);
     localStorage.setItem('result', output.textContent);
 }
 
 
-
-
-
-
-
 let exp = "";
 function makeExp(i) {
-   
+
     const lastChar = exp.charAt(exp.length - 1);
 
-    if (
-        (i === '+' || i === '-' || i === '*' || i === '/') &&
-        (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/')
-    ) {
-       
-        return;
-    } else if (i === '.' && lastChar === '.') {
-     
+    if ((i === '+' || i === '-' || i === '*' || i === '/') && (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/')) {
+
         return;
     }
+    else if (i === '.' && lastChar === '.') {
 
-    // Append the input to the expression
+        return;
+    }
     exp = exp + i;
     expression.textContent = exp;
-saveData();
+    saveData();
 }
 
 function calculate() {
-    if (exp.endsWith('+') || exp.endsWith('-') || exp.endsWith('*') || exp.endsWith('/') ) {
+    if (exp.endsWith('+') || exp.endsWith('-') || exp.endsWith('*') || exp.endsWith('/')) {
         output.textContent = 'Syntax Error';
         return;
     }
     const result = eval(exp);
-    output.textContent = result;
-    
+    if (result !== undefined) {
+        output.textContent = result;
+        saveHistory(exp, result);
+    } else {
+        output.textContent = "_";
+    }
     saveData();
 }
 
@@ -58,9 +54,12 @@ function clearAll() {
 function sqRoot() {
     const root = Math.sqrt(exp);
     output.textContent = root;
+    const listItem = document.createElement("li");
+    listItem.textContent = `sqrt of ${exp} = ${root}`;
+    historyList.appendChild(listItem);
+
 
 }
-
 function backSpace() {
     exp = exp.slice(0, -1);
     expression.textContent = exp;
@@ -68,15 +67,28 @@ function backSpace() {
 
 function calculatePercentage() {
     const percentage = eval(exp) / 100;
-    exp = percentage; 
-    output.textContent = exp; 
+    output.textContent = percentage;
+    const listItem = document.createElement("li");
+    listItem.textContent = `${exp}% = ${percentage}`;
+    historyList.appendChild(listItem);
 }
 
-// Load data from local storage
+function saveHistory(expression, result) {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${expression} = ${result}`;
+    historyList.appendChild(listItem);
+}
+
+function clearRecent() {
+    const clear = historyList;
+    clear.textContent = "";
+}
+
+
 function loadData() {
     const savedExpression = localStorage.getItem('expression');
     const savedResult = localStorage.getItem('result');
-    
+
     if (savedExpression && savedResult) {
         exp = savedExpression;
         expression.textContent = exp;

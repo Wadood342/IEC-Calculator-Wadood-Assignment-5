@@ -1,7 +1,7 @@
 *{
     color: white !important;
 }
-body{
+.body{
     background-color:#2a1f42;
 }
 .calculator {
@@ -15,7 +15,8 @@ body{
 }
 
 .btn-cal {
-    width: 20%;
+    width:50px !important ;
+    height: 50px !important;
     margin: 5px;
     background-color: #2f2547;
 
@@ -28,10 +29,7 @@ body{
     background-color: #282c4f;
 }
 
-button{
-    width:50px !important ;
-    height: 50px !important;
-}
+
 .recent{
-    background-color: aliceblue !important;
+    background-color:#0000007d ;
 }

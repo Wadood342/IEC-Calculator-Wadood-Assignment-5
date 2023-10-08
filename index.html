@@ -11,22 +11,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="loadData()">
+<body onload="loadData()" class="body">
     <div class="align-content-center text-center">
         <h1>CALCULATOR</h1>
         <h5>"Calculating Possibilities, One Equation at a Time"</h5>
     </div>
     <div class="container">
         <div class="row ">
-            <div class="col-md-8 offset-md-2 calculator display rounded  ">
+            <div class="col-md-8 offset-md-2 calculator display rounded-5  ">
                 <div class="container-fluid p-2 ">
                     <h1 id="expression"></h1>
                     <h1 id="answer">_</h1>
-                </div>  
+                </div>
             </div>
         </div>
         <div class="row ">
-            <div class=" keypad col-lg-4  col-md-8 offset-lg-2 offset-md-2 offset-sm-0   p-5 col-sm-12 rounded">
+            <div class=" keypad col-lg-4  col-md-8 offset-lg-2 offset-md-2 offset-sm-0   p-5 col-sm-12 rounded-5">
                 <button onclick="makeExp(1)" class="btn btn-light btn-cal">1</button>
                 <button onclick="makeExp(2)" class="btn btn-light btn-cal">2</button>
                 <button onclick="makeExp(3)" class="btn btn-light btn-cal">3</button>
@@ -36,7 +36,7 @@
                 <button onclick="makeExp(5)" class="btn btn-light btn-cal">5</button>
                 <button onclick="makeExp(6)" class="btn btn-light btn-cal">6</button>
                 <button onclick="makeExp('-')" class="btn btn-light btn-cal fas fa-minus"></button>
-              <br>
+                <br>
                 <button onclick="makeExp(7)" class=" btn btn-light btn-cal">7</button>
                 <button onclick="makeExp(8)" class="btn btn-light btn-cal">8</button>
                 <button onclick="makeExp(9)" class="btn btn-light btn-cal">9</button>
@@ -45,16 +45,21 @@
                 <button onclick="makeExp('/')" class="btn btn-info btn-cal fas fa-divide"></button>
                 <button onclick="makeExp(0)" class="btn btn-light btn-cal">0</button>
                 <button onclick="calculate()" class="btn btn-warning btn-cal">=</button>
-                <button onclick="backSpace()"   class="btn btn-success btn-cal fas fa-backspace"></button>
+                <button onclick="backSpace()" class="btn btn-success btn-cal fas fa-backspace"></button>
                 <br>
                 <button onclick="clearAll()" class="btn btn-success btn-cal">AC</button>
                 <button onclick="makeExp('.')" class="btn btn-light btn-cal">.</button>
                 <button onclick="calculatePercentage()" class="btn btn-primary btn-cal fas fa-percentage"></button>
-                <button onclick="sqRoot()" class="btn btn-primary btn-cal fas fa-square-root-alt"></button>
+                <button onclick="sqRoot();saveHistory(); "
+                    class="btn btn-primary btn-cal fas fa-square-root-alt"></button>
                 <br>
             </div>
-            <div class=" keypad col-lg-4  col-md-12  p-5 col-sm-12 recent">
-            
+            <div class="col-lg-4 col-md-12 p-5 col-sm-12 recent rounded-5">
+                <h3>Recent History</h3>
+                <ul id="history-list"></ul>
+                <button onclick="clearRecent()" class="btn btn-danger w-50 " id="clear-btn"> Clear Recents
+                </button>
+
             </div>
         </div>
     </div>
