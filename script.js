@@ -13,15 +13,13 @@ function saveData() {
 
 let exp = "";
 function makeExp(i) {
-
     const lastChar = exp.charAt(exp.length - 1);
+    const lastNumber = exp.split(/[\+\-\*\/]/).pop();
 
     if ((i === '+' || i === '-' || i === '*' || i === '/') && (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/')) {
-
         return;
     }
-    else if (i === '.' && lastChar === '.') {
-
+    else if (i === '.' && (lastChar === '.' || lastNumber.includes('.'))) {
         return;
     }
     exp = exp + i;
@@ -29,10 +27,12 @@ function makeExp(i) {
     saveData();
 }
 
+
 function calculate() {
     if (exp.endsWith('+') || exp.endsWith('-') || exp.endsWith('*') || exp.endsWith('/')) {
         output.textContent = 'Syntax Error';
         return;
+        
     }
     const result = eval(exp);
     if (result !== undefined) {
@@ -48,6 +48,7 @@ function clearAll() {
     expression.textContent = "0";
     output.textContent = "_";
     exp = "";
+    saveData();
 }
 
 
