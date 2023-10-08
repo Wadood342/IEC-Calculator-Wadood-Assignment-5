@@ -1,0 +1,32 @@
+
+*{
+    color: white !important;
+}
+body{
+    background-color:#2a1f42;
+}
+.calculator {
+    
+    margin-top: 100px;
+}
+
+.display {   
+    padding: 10px;
+    background-color:#2c284b;
+    border: 1px solid #ccc;
+
+}
+
+.btn-cal {
+    width: 20%;
+    margin: 5px;
+    background-color: #2f2547;
+
+}
+
+#answer{
+    float: right;
+}
+.keypad{
+    background-color: #282c4f;
+}
