@@ -11,38 +11,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="loadData()">
+    <div class="align-content-center text-center">
+        <h1>CALCULATOR</h1>
+        <h5>"Calculating Possibilities, One Equation at a Time"</h5>
+    </div>
     <div class="container">
-
         <div class="row ">
-            <div class="col-md-8 offset-md-2 calculator display  rounded  ">
-                <div class="container-fluid ">
-                    <h1 id="expression">1</h1>
-                    <h1 id="answer">dcdcdc</h1>
-                </div>
+            <div class="col-md-8 offset-md-2 calculator display rounded  ">
+                <div class="container-fluid p-2 ">
+                    <h1 id="expression"></h1>
+                    <h1 id="answer">_</h1>
+                </div>  
             </div>
         </div>
-        <div class="row m-0">
-            <div class=" keypad col-lg-8 offset-lg-2 col-md-8 offset-md-2 p-5 col-sm-12  rounded">
-                <button class="btn btn-light btn-cal">1</button>
-                <button class="btn btn-light btn-cal">2</button>
-                <button class="btn btn-light btn-cal">3</button>
-                <button class="btn btn-info btn-cal">+</button>
-                <button class="btn btn-light btn-cal">-</button>
-                <button class="btn btn-light btn-cal">4</button>
-                <button class="btn btn-light btn-cal">5</button>
-                <button class="btn btn-light btn-cal">6</button>
-                <button class="btn btn-info btn-cal"">*</button>
-                <button class=" btn btn-light btn-cal">7</button>
-                <button class="btn btn-light btn-cal">8</button>
-                <button class="btn btn-light btn-cal">9</button>
-                <button class="btn btn-info btn-cal">/</button>
-                <button class="btn btn-light btn-cal">0</button>
-                <button class="btn btn-warning btn-cal">=</button>
-                <button class="btn btn-success btn-cal">C</button>
-                <button class="btn btn-light btn-cal">.</button>
-                <button class="btn btn-primary btn-cal">%</button>
-                <button class="btn btn-primary btn-cal">√</button>
+        <div class="row ">
+            <div class=" keypad col-lg-4  col-md-8 offset-lg-2 offset-md-2 offset-sm-0   p-5 col-sm-12 rounded">
+                <button onclick="makeExp(1)" class="btn btn-light btn-cal">1</button>
+                <button onclick="makeExp(2)" class="btn btn-light btn-cal">2</button>
+                <button onclick="makeExp(3)" class="btn btn-light btn-cal">3</button>
+                <button onclick="makeExp('+')" class="btn btn-info btn-cal fas fa-plus"></button>
+                <br>
+                <button onclick="makeExp(4)" class="btn btn-light btn-cal">4</button>
+                <button onclick="makeExp(5)" class="btn btn-light btn-cal">5</button>
+                <button onclick="makeExp(6)" class="btn btn-light btn-cal">6</button>
+                <button onclick="makeExp('-')" class="btn btn-light btn-cal fas fa-minus"></button>
+              <br>
+                <button onclick="makeExp(7)" class=" btn btn-light btn-cal">7</button>
+                <button onclick="makeExp(8)" class="btn btn-light btn-cal">8</button>
+                <button onclick="makeExp(9)" class="btn btn-light btn-cal">9</button>
+                <button onclick="makeExp('*')" class="btn btn-info btn-cal fas fa-times"></button>
+                <br>
+                <button onclick="makeExp('/')" class="btn btn-info btn-cal fas fa-divide"></button>
+                <button onclick="makeExp(0)" class="btn btn-light btn-cal">0</button>
+                <button onclick="calculate()" class="btn btn-warning btn-cal">=</button>
+                <button onclick="backSpace()"   class="btn btn-success btn-cal fas fa-backspace"></button>
+                <br>
+                <button onclick="clearAll()" class="btn btn-success btn-cal">AC</button>
+                <button onclick="makeExp('.')" class="btn btn-light btn-cal">.</button>
+                <button onclick="calculatePercentage()" class="btn btn-primary btn-cal fas fa-percentage"></button>
+                <button onclick="sqRoot()" class="btn btn-primary btn-cal fas fa-square-root-alt"></button>
+                <br>
+            </div>
+            <div class=" keypad col-lg-4  col-md-12  p-5 col-sm-12 recent">
+            
             </div>
         </div>
     </div>
@@ -84,6 +96,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
+    <script src="script.js">
+    </script>
 </body>
 
 </html>
